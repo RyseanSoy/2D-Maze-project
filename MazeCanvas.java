@@ -1,15 +1,40 @@
-import java.awt.Canvas;
-import java.awt.Graphics;
+import javax.swing.JPanel;
 
-public class MazeCanvas extends Canvas {
+import java.awt.Graphics;
+import java.awt.Color;
+
+public class MazeCanvas extends JPanel {
+    /**
+     * Maze model to draw
+     */
     MazeModel model;
 
+    /**
+     * Constructor for MazeCanvas
+     * 
+     * @param model Maze model to draw
+     */
     public MazeCanvas(MazeModel model) {
         this.model = model;
     }
 
+    /**
+     * Draw a cell in the maze
+     * 
+     * @param g        Graphics context
+     * @param c        Cell to draw
+     * @param top      Top coordinate
+     * @param left     Left coordinate
+     * @param cell_dim Cell dimension
+     */
     private void drawCell(Graphics g, Cell c, int top, int left, int cell_dim) {
         top = top + 1;
+        // If visited, fill the inside with color light blue
+        if (c.isVisited()) {
+            g.setColor(new Color(173, 216, 230)); // light blue
+            g.fillRect(left, top, cell_dim, cell_dim);
+        }
+        g.setColor(Color.BLACK);
         if (c.getTop() == true)
             g.drawLine(left, top, left + cell_dim, top);
         if (c.getLeft() == true)
@@ -20,9 +45,14 @@ public class MazeCanvas extends Canvas {
             g.drawLine(left + cell_dim, top, left + cell_dim, top + cell_dim);
     }
 
+    /**
+     * Paint the maze
+     * 
+     * @param g Graphics context
+     */
     @Override
-    public void paint(Graphics g) {
-
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // clears the panel before redrawing
         int w = getWidth();
         int h = getHeight();
         int cell_dim;
