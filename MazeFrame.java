@@ -12,6 +12,8 @@ public class MazeFrame extends JFrame {
      * set the size of the window
      * set the default close operation
      * add the maze canvas to the window
+     * 
+     * @param model maze model
      */
     public MazeFrame(MazeModel model) {
         this.model = model;
@@ -23,8 +25,11 @@ public class MazeFrame extends JFrame {
     }
 
     // getter
+    /**
+     * @return maze canvas
+     */
     public MazeCanvas getCanvas() {
         return canvas;
-    }
+    }// end getCanvas
 
 }

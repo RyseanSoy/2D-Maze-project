@@ -3,6 +3,11 @@ import java.util.ArrayList;
 import Stack.StackReferenceBased;
 
 public class MazeGenerator {
+    /**
+     * Generates a maze using the randomized depth-first search algorithm.
+     * 
+     * @param model The maze model to generate the maze in.
+     */
     public static void generateMazeRandomised(MazeModel model) {
         StackReferenceBased stack = new StackReferenceBased();
         // Starting from the top-left corner (0, 0)
