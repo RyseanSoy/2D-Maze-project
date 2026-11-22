@@ -3,10 +3,12 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Color;
 
+/**
+ * Canvas for drawing the maze model
+ * 
+ */
 public class MazeCanvas extends JPanel {
-    /**
-     * Maze model to draw
-     */
+    // Maze model to draw
     MazeModel model;
 
     /**
@@ -32,6 +34,11 @@ public class MazeCanvas extends JPanel {
         // If visited, fill the inside with color light blue
         if (c.isVisited()) {
             g.setColor(new Color(173, 216, 230)); // light blue
+            g.fillRect(left, top, cell_dim, cell_dim);
+        }
+        // If on path, fill the inside with color orange
+        if (c.isOnPath()) {
+            g.setColor(new Color(255, 165, 0)); // orange
             g.fillRect(left, top, cell_dim, cell_dim);
         }
         g.setColor(Color.BLACK);
