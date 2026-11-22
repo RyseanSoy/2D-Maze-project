@@ -7,6 +7,7 @@ public class MazeModel {
      * 
      * @param rows number of rows in the maze
      * @param cols number of columns in the maze
+     * 
      */
     public MazeModel(int rows, int cols) {
         if (rows < 1 || cols < 1) {
@@ -16,6 +17,7 @@ public class MazeModel {
         this.rows = rows;
         this.cols = cols;
         cells = new Cell[rows][cols];
+        // creating the cells
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 cells[i][j] = new Cell(i, j);
