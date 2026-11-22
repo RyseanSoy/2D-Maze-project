@@ -15,6 +15,9 @@ public class Cell {
     /**
      * Constructor for Cell
      * Initializes a cell with all walls intact and visited status set to false
+     * 
+     * @param r row of the cell
+     * @param c column of the cell
      */
     public Cell(int r, int c) {
         row = r;
@@ -38,26 +41,52 @@ public class Cell {
         return row;
     }
 
+    /**
+     * 
+     * 
+     * @return column of the cell
+     */
     public int getCol() {
         return col;
     }
 
+    /**
+     * 
+     * 
+     * @return true if top wall exists, false otherwise
+     */
     public boolean getTop() {
         return top;
     }// end getTop
 
+    /**
+     * 
+     * @return true if bottom wall exists, false otherwise
+     */
     public boolean getBottom() {
         return bottom;
     }// end getBottom
 
+    /**
+     * 
+     * @return true if left wall exists, false otherwise
+     */
     public boolean getLeft() {
         return left;
     }// end getLeft
 
+    /**
+     * 
+     * @return true if right wall exists, false otherwise
+     */
     public boolean getRight() {
         return right;
     }// end getRight
 
+    /**
+     * 
+     * @return true if the cell is visited, false otherwise
+     */
     public boolean isVisited() {
         return visited;
     }// end isVisited
@@ -71,20 +100,36 @@ public class Cell {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }// end setVisited
-     // parent setter and getter
 
+    // parent setter and getter
+    /**
+     * 
+     * @return parent of the cell
+     */
     public Cell getParent() {
         return parent;
     }
 
+    /**
+     * 
+     * @param parent parent of the cell
+     */
     public void setParent(Cell parent) {
         this.parent = parent;
     }
 
+    /**
+     * 
+     * @return true if the cell is on the path, false otherwise
+     */
     public boolean isOnPath() {
         return onPath;
     }
 
+    /**
+     * 
+     * @param onPath true if the cell is on the path, false otherwise
+     */
     public void setOnPath(boolean onPath) {
         this.onPath = onPath;
     }
