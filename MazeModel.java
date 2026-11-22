@@ -10,6 +10,7 @@ public class MazeModel {
      * 
      */
     public MazeModel(int rows, int cols) {
+        // throwing exception if the rows or columns are less than 1
         if (rows < 1 || cols < 1) {
             throw new IllegalArgumentException(
                     "Maze dimensions must be at least 1. Got rows=" + rows + ", cols=" + cols);
