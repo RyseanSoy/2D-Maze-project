@@ -9,6 +9,8 @@ public class Cell {
     public boolean top, bottom, left, right;
     public boolean visited;
     public int row, col;
+    private Cell parent;
+    private boolean onPath;
 
     /**
      * Constructor for Cell
@@ -69,6 +71,23 @@ public class Cell {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }// end setVisited
+     // parent setter and getter
+
+    public Cell getParent() {
+        return parent;
+    }
+
+    public void setParent(Cell parent) {
+        this.parent = parent;
+    }
+
+    public boolean isOnPath() {
+        return onPath;
+    }
+
+    public void setOnPath(boolean onPath) {
+        this.onPath = onPath;
+    }
 
     /**
      * sets the top wall of the cell
