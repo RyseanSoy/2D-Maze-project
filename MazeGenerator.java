@@ -30,7 +30,7 @@ public class MazeGenerator {
             Cell currentCell = model.getCell(r, c);
 
             // add list of valid unvisited cells
-            ArrayList<int[]> NotVisitedCell = new ArrayList<>();
+            ArrayList<int[]> notVisitedCell = new ArrayList<>();
             /**
              * check UP (r - 1, c)
              * check DOWN (r + 1, c)
@@ -40,31 +40,32 @@ public class MazeGenerator {
              */
             // Check UP (r - 1, c)
             if (model.inBounds(r - 1, c) && !model.getCell(r - 1, c).isVisited()) {
-                NotVisitedCell.add(new int[] { r - 1, c });
+                notVisitedCell.add(new int[] { r - 1, c });
             }
             // Check DOWN (r + 1, c)
             if (model.inBounds(r + 1, c) && !model.getCell(r + 1, c).isVisited()) {
-                NotVisitedCell.add(new int[] { r + 1, c });
+                notVisitedCell.add(new int[] { r + 1, c });
             }
             // Check LEFT (r, c - 1)
             if (model.inBounds(r, c - 1) && !model.getCell(r, c - 1).isVisited()) {
-                NotVisitedCell.add(new int[] { r, c - 1 });
+                notVisitedCell.add(new int[] { r, c - 1 });
             }
             // Check RIGHT (r, c + 1)
             if (model.inBounds(r, c + 1) && !model.getCell(r, c + 1).isVisited()) {
-                NotVisitedCell.add(new int[] { r, c + 1 });
+                notVisitedCell.add(new int[] { r, c + 1 });
             }
             /**
+             * neighbors are the notVisitedCell
              * if the list is not empty, then there are unvisited neighbors
              * pick a random neighbor
              * remove the wall between the current cell and the chosen neighbor
              * push the chosen neighbor into the stack
              * set the chosen neighbor as visited
              */
-            if (!NotVisitedCell.isEmpty()) {
-                // Pick a random neighbor
-                int randomIndex = (int) (Math.random() * NotVisitedCell.size());
-                int[] next = NotVisitedCell.get(randomIndex);
+            if (!notVisitedCell.isEmpty()) {
+                // Pick a random NotVisitedCell
+                int randomIndex = (int) (Math.random() * notVisitedCell.size());
+                int[] next = notVisitedCell.get(randomIndex);
                 int nextR = next[0];
                 int nextC = next[1];
                 Cell nextCell = model.getCell(nextR, nextC);
@@ -97,7 +98,7 @@ public class MazeGenerator {
                 stack.push(new int[] { nextR, nextC });
 
             } else {
-                // No unvisited neighbors -> Dead end, backtrack
+                // No unvisited notVisitedCell -> Dead end, backtrack
                 stack.pop();
             } // end else
         } // end while loop
