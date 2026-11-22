@@ -3,7 +3,7 @@ public class Main {
         /*
          * create maze model with 10 rows and 10 columns
          */
-        MazeModel maze = new MazeModel(10, 10);
+        MazeModel maze = new MazeModel(30, 30);
         /*
          * create maze with random path
          */
